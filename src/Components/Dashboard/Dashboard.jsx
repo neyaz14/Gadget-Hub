@@ -11,9 +11,12 @@ import Wishlist from '../Wishlist/Wishlist';
 
 const Dashboard = () => {
 
+    const [visibleItem, setVisibleItem] = useState(1);
+
 
     const [sort, setsort] = useState();
-    const [showFirstItem, setShowFirstItem] = useState(true);
+    //  for toggle items 
+
     const [Cgadget, setCgadget] = useState([]);
     const allgadgets = useLoaderData();
     useEffect(() => {
@@ -38,17 +41,8 @@ const Dashboard = () => {
     }
 
     // for onclik handler to show and hide one section 
-    const handleShowCart = () => {
-        alert('cart')
-    }
-    const handleShowWishlist = () => {
-        alert('WishList')
-    }
-    const toggleItems = () => {
-        setShowFirstItem(!showFirstItem); 
-      };
-
-
+    const showCart = () => setVisibleItem(1);
+    const showWishlist = () => setVisibleItem(2);
 
 
     // for sorting by price
@@ -68,59 +62,83 @@ const Dashboard = () => {
                     mt-6'>
 
 
-                        <button onClick={handleShowCart} className='btn btn-primary'>
+                        <button
+                            onClick={showCart}
+                            className='btn btn-primary'>
                             Cart
                         </button>
-                        <button onClick={handleShowWishlist} className='btn border'>WishList</button>
+                        <button
+                            onClick={showWishlist}
+                            className='btn border'>WishList</button>
                     </div>
 
 
 
                 </div>
             </div>
+
+
+
+
+          
+
+
+            {visibleItem === 1 ?
+                <div>
+                    <div className='flex justify-between items-center my-8'>
+                        <p className='text-3xl font-bold text-purple-500 '>Cart</p>
+
+                        <div className='flex items-center gap-10'>
+                            <p>Price :{
+                                totalPrice()
+                            } </p>
+                            <button
+                                onClick={handleSorting}
+                                className='btn btn-outline text-purple-700'>Sort by Price</button>
+                            {/* <button className='btn btn-outline text-purple-700'>Purchase</button> */}
+                            <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Purchase</button>
+                            <dialog id="my_modal_1" className="modal">
+                                <div className="modal-box">
+                                    <h3 className="font-bold text-lg">Payment Successfully</h3>
+                                    <p className="py-4">Thanks for purchasing.</p>
+                                    <p>Total Price : {totalPrice()} BDT</p>
+                                    <div className="modal-action">
+                                        <form method="dialog">
+
+                                            <button className="btn">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
+                        </div>
+                    </div>
+                    {
+                        Cgadget.map(gadget => <Cart key={gadget.gadgetId} gadget={gadget}></Cart>)
+                    }
+                </div>
+                :
+                <div>
+                    <p className='text-3xl font-bold text-purple-500 '>WishList</p>
+                    {
+                        Cgadget.map(gadget => <Wishlist key={gadget.gadgetId} gadget={gadget}></Wishlist>)
+                    }
+                </div>
+            }
+
+
+
+
+
+
+
+
 
 
             {/* for cart */}
-            <div>
-                <div className='flex justify-between items-center my-8'>
-                    <p className='text-3xl font-bold text-purple-500 '>Cart</p>
 
-                    <div className='flex items-center gap-10'>
-                        <p>Price :{
-                            totalPrice()
-                        } </p>
-                        <button
-                            onClick={handleSorting}
-                            className='btn btn-outline text-purple-700'>Sort by Price</button>
-                        {/* <button className='btn btn-outline text-purple-700'>Purchase</button> */}
-                        <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Purchase</button>
-                        <dialog id="my_modal_1" className="modal">
-                            <div className="modal-box">
-                                <h3 className="font-bold text-lg">Payment Successfully</h3>
-                                <p className="py-4">Thanks for purchasing.</p>
-                                <p>Total Price : {totalPrice()} BDT</p>
-                                <div className="modal-action">
-                                    <form method="dialog">
-                                       
-                                        <button className="btn">Close</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </dialog>
-                    </div>
-                </div>
-                {
-                    Cgadget.map(gadget => <Cart key={gadget.gadgetId} gadget={gadget}></Cart>)
-                }
-            </div>
 
             {/* for wishlist */}
-            <div>
-                <p className='text-3xl font-bold text-purple-500 '>WishList</p>
-                {
-                    Cgadget.map(gadget => <Wishlist key={gadget.gadgetId} gadget={gadget}></Wishlist>)
-                }
-            </div>
+
 
         </div>
     );
