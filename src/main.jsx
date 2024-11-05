@@ -16,7 +16,7 @@ import Details from './Components/Details/Details.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import Cart from './Components/Cart/Cart.jsx'
 import Wishlist from './Components/Wishlist/Wishlist.jsx';
-
+import Satistics from './Components/Satistics/Satistics.jsx'
 
 const router = createBrowserRouter([
   {
@@ -47,6 +47,9 @@ const router = createBrowserRouter([
       {
         path: 'wishList',
         element: <Wishlist></Wishlist>
+      },{
+        path :'satistics',
+        element: <Satistics></Satistics>
       }
     ]
   },
