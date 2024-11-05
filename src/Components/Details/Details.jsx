@@ -1,5 +1,6 @@
 import React from 'react';
 import {  useLoaderData, useParams } from 'react-router-dom';
+import {addToStoredCart} from '../../Utility/addToDB'
 const Details = () => {
     const { gadgetId } = useParams();
     const id = parseInt(gadgetId);
@@ -9,10 +10,10 @@ const Details = () => {
     const gadget = data.find(gadget => gadget.gadgetId === id);
 
     console.log(gadget)
-    const {  producttitle, productimage, category, price, description, Specification, availability, rating } = gadget;
+    const { gadgetId: gId,  producttitle, productimage, category, price, description, Specification, availability, rating } = gadget;
 
     const handleAddtoCART = (id) =>{
-        // addToSTOREreadLIST(id);
+        addToStoredCart(id);
     }
     return (
         <div className='border border-white p-5 m-5'>
@@ -33,7 +34,7 @@ const Details = () => {
                     <p>{category}</p>
                     <p><span className='font-bold'>Description:</span> {description}</p>
                     <div className='mt-16'>
-                        <button onClick={() => handleAddtoCART(gId)} className='{currentBookId} btn btn-outline mr-6'>Add to Cart</button>
+                        <button onClick={() => handleAddtoCART(gId)} className=' btn btn-outline mr-6'>Add to Cart</button>
                         <button className='btn btn-primary'>Wishlist</button>
                     </div>
 

@@ -1,9 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
-
-
+// import App from './App.jsx'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
   createBrowserRouter,
@@ -13,7 +13,9 @@ import Route from './Components/Routes/Route.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx'
 import Home from './Components/Home/Home.jsx'
 import Details from './Components/Details/Details.jsx';
-
+import Dashboard from './Components/Dashboard/Dashboard.jsx';
+import Cart from './Components/Cart/Cart.jsx'
+import Wishlist from './Components/Wishlist/Wishlist.jsx';
 
 
 const router = createBrowserRouter([
@@ -32,6 +34,19 @@ const router = createBrowserRouter([
         path: 'gadgets/:gadgetId',
         element: <Details></Details>,
         loader: ()=> fetch('/gadgets.json') 
+      },{
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        loader: () => fetch('./gadgets.json'),
+       
+      },{
+        path: 'cart',
+        element: <Cart></Cart>
+
+      },
+      {
+        path: 'wishList',
+        element: <Wishlist></Wishlist>
       }
     ]
   },
@@ -41,5 +56,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>,
 )
