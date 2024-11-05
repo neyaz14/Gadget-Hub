@@ -1,0 +1,112 @@
+[
+    {
+      "gadgetId": 1,
+      "producttitle": "Samsung Galaxy S21",
+      "productimage": "https://i.ibb.co.com/Pt62nX2/andPhone.png",
+      "category": "Android Mobile",
+      "price": 799.99,
+      "description": "The Samsung Galaxy S21 features a 6.2-inch display, 5G support, and a powerful Exynos processor.",
+      "Specification": ["6.2-inch AMOLED display", "128GB storage", "4000mAh battery", "Triple rear camera"],
+      "availability": true,
+      "rating": 5
+    },
+    {
+      "gadgetId": 2,
+      "producttitle": "Google Pixel 6",
+      "productimage": "https://i.ibb.co.com/Pt62nX2/andPhone.png",
+      "category": "Android Mobile",
+      "price": 699.99,
+      "description": "The Google Pixel 6 comes with the latest Google Tensor chip and offers exceptional camera performance.",
+      "Specification": ["6.4-inch OLED display", "128GB storage", "4614mAh battery", "Dual rear camera"],
+      "availability": true,
+      "rating": 4
+    },
+    {
+      "gadgetId": 3,
+      "producttitle": "Dell XPS 13",
+      "productimage": "https://i.ibb.co.com/cc3wgmh/Laptop.png",
+      "category": "Windows Laptop",
+      "price": 999.99,
+      "description": "Dell XPS 13 is a high-performance laptop with an InfinityEdge display and 11th Gen Intel processor.",
+      "Specification": ["13.3-inch FHD display", "256GB SSD", "8GB RAM", "Intel Core i5"],
+      "availability": true,
+      "rating": 3
+    },
+    {
+      "gadgetId": 4,
+      "producttitle": "HP Spectre x360",
+      "productimage": "https://i.ibb.co.com/cc3wgmh/Laptop.png",
+      "category": "Windows Laptop",
+      "price": 1199.99,
+      "description": "HP Spectre x360 is a versatile 2-in-1 laptop with a stunning design and long battery life.",
+      "Specification": ["13.3-inch 4K UHD display", "512GB SSD", "16GB RAM", "Intel Core i7"],
+      "availability": true,
+      "rating": 4
+    },
+    {
+      "gadgetId": 5,
+      "producttitle": "MacBook Air M1",
+      "productimage": "https://i.ibb.co.com/cc3wgmh/Laptop.png",
+      "category": "MacBook",
+      "price": 999.99,
+      "description": "The MacBook Air M1 offers impressive performance and battery life with the new Apple M1 chip.",
+      "Specification": ["13.3-inch Retina display", "256GB SSD", "8GB RAM", "Apple M1 chip"],
+      "availability": true,
+      "rating": 5
+    },
+    {
+      "gadgetId": 6,
+      "producttitle": "MacBook Pro M1",
+      "productimage": "https://i.ibb.co.com/cc3wgmh/Laptop.png",
+      "category": "MacBook",
+      "price": 1299.99,
+      "description": "The MacBook Pro M1 offers powerful performance with the Apple M1 chip, perfect for professionals.",
+      "Specification": ["13.3-inch Retina display", "256GB SSD", "8GB RAM", "Apple M1 chip"],
+      "availability": false,
+      "rating": 4
+    },
+    {
+      "gadgetId": 7,
+      "producttitle": "Sony WH-1000XM4",
+      "productimage": "https://i.ibb.co.com/xjBWgGk/Headphone.jpg",
+      "category": "Headphones",
+      "price": 349.99,
+      "description": "Sony WH-1000XM4 offers industry-leading noise cancellation and exceptional sound quality.",
+      "Specification": ["Noise cancellation", "30-hour battery life", "Bluetooth 5.0", "Quick charge"],
+      "availability": true,
+      "rating": 5
+    },
+    {
+      "gadgetId": 8,
+      "producttitle": "Bose QuietComfort 35 II",
+      "productimage": "https://i.ibb.co.com/xjBWgGk/Headphone.jpg",
+      "category": "Headphones",
+      "price": 299.99,
+      "description": "Bose QuietComfort 35 II offers excellent noise cancellation and comfortable fit for long wear.",
+      "Specification": ["Noise cancellation", "20-hour battery life", "Bluetooth", "Voice assistant support"],
+      "availability": true,
+      "rating": 4
+    },
+    {
+      "gadgetId": 9,
+      "producttitle": "iPhone 13 Pro",
+      "productimage": "https://i.ibb.co.com/qjkq9MG/Iphone.png",
+      "category": "IPhone",
+      "price": 999.99,
+      "description": "The iPhone 13 Pro features the A15 Bionic chip, advanced camera system, and ProMotion display.",
+      "Specification": ["6.1-inch Super Retina XDR display", "128GB storage", "5G support", "Triple rear camera"],
+      "availability": true,
+      "rating": 5
+    },
+    {
+      "gadgetId": 10,
+      "producttitle": "Iphone 17",
+      "productimage": "https://i.ibb.co.com/qjkq9MG/Iphone.png",
+      "category": "IPhone",
+      "price": 969.99,
+      "description": "The OnePlus 9 Pro offers a fluid display and Hasselblad camera partnership for stunning photos.",
+      "Specification": ["6.7-inch Fluid AMOLED display", "256GB storage", "4500mAh battery", "Quad rear camera"],
+      "availability": false,
+      "rating": 4
+    }
+  ]
