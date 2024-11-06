@@ -7,15 +7,12 @@ const Navbar = ({location}) => {
     const cartList = getStoredToCART();
     
 
-    const navigateDASH = useNavigate();
-    const handleNavigateOFDASH = ()=>{
-      navigateDASH(`${location.pathname}`);
-    }
+   
     const Links = <>
         <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'/'}>Home</NavLink></li>
         <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'satistics'}>Statistics</NavLink></li>
 
-        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'dashboard'} onClick={handleNavigateOFDASH}>Dashboard</NavLink></li>
+        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'dashboard'} >Dashboard</NavLink></li>
 
         <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'yourwish'}>Your Wish</NavLink></li>
     </>

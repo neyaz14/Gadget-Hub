@@ -52,9 +52,9 @@ const Details = () => {
                     </p>
                     <p>Rating : {rating}</p>
                     <div className='mt-16'>
-
+                    {/* ' btn btn-outline mr-6' */}
                         <button 
-                        onClick={() => handleAddtoCART(gId)} className=' btn btn-outline mr-6'>Add to Cart</button>
+                        onClick={() => handleAddtoCART(gId)} className={`${availability? 'btn bg-purple-400 mr-6': 'btn btn-disabled mr-6'}`}>Add to Cart</button>
 
                         <button
                         onClick={() => handleAddtoCART(gId)}
