@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from "react-helmet-async";
 import {  useLoaderData, useNavigate, useParams } from 'react-router-dom';
-import {addToStoredCart} from '../../Utility/addToDB'
+import {addToStoredCart, addToStoredWishlist} from '../../Utility/addToDB'
 const Details = () => {
     const { gadgetId } = useParams();
     const id = parseInt(gadgetId);
@@ -18,6 +18,9 @@ const Details = () => {
     const handleAddtoCART = (id) =>{
         addToStoredCart(id);
         // navigate()
+    }
+    const handleAddtoWishlist = (id) =>{
+        addToStoredWishlist(id);
     }
     return (
         <div className='border border-white p-5 m-5'>
@@ -57,7 +60,7 @@ const Details = () => {
                         onClick={() => handleAddtoCART(gId)} className={`${availability? 'btn bg-purple-400 mr-6': 'btn btn-disabled mr-6'}`}>Add to Cart</button>
 
                         <button
-                        onClick={() => handleAddtoCART(gId)}
+                        onClick={() => handleAddtoWishlist(gId)}
                         className='btn btn-primary'>Wishlist</button>
                     </div>
 
