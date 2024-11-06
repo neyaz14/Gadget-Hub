@@ -44,7 +44,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <a className="btn mr-3 text-white font-bold bg-purple-600">Cart <span>({cartList.length})</span></a>
+                <a className="btn mr-3 text-white font-bold bg-purple-600">Cart <span></span></a>
                 <a className="btn ml-3 text-white font-bold bg-purple-400">WishList</a>
             </div>
         </div>

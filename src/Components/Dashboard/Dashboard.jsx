@@ -14,7 +14,7 @@ const Dashboard = () => {
     const [visibleItem, setVisibleItem] = useState(1);
 
 
-    const [sort, setsort] = useState();
+    // const [sort, setsort] = useState();
    
 
     const [Cgadget, setCgadget] = useState([]);
@@ -56,8 +56,10 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const handleNavigate =() =>{
         totalPrice(0)
-       storeCart= localStorage.removeItem('gadget-list');
-        navigate(`${'/'}`)
+       let storeCart= localStorage.removeItem('gadget-list');
+        setCgadget([]);
+        navigate(`${'/'}`);
+        // document.getElementById('cart').innerHTML = `<div></div>`;
     }
 
     return (
@@ -94,7 +96,7 @@ const Dashboard = () => {
 {/* Cgadget.length */}
             {visibleItem === 1 ?
                 <div>
-                    <div className='flex justify-between items-center my-8'>
+                    <div id='cart' className='flex justify-between items-center my-8'>
                         <p className='text-3xl font-bold text-purple-500 '>Cart</p>
 
                         <div className='flex items-center gap-10'>
