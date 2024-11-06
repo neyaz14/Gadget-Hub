@@ -13,10 +13,6 @@ const Dashboard = () => {
 
     const [visibleItem, setVisibleItem] = useState(1);
 
-
-    // const [sort, setsort] = useState();
-   
-
     const [Cgadget, setCgadget] = useState([]);
     const allgadgets = useLoaderData();
     
@@ -25,7 +21,7 @@ const Dashboard = () => {
         const storeCartInt = storeCart.map(id => parseInt(id));
         const addedCartList = allgadgets.filter(gadget => storeCartInt.includes(gadget.gadgetId));
 
-        console.log(storeCart.length)
+        // console.log(storeCart.length)
        
         // console.log(addedCartList.length)
         setCgadget(addedCartList)
@@ -57,10 +53,9 @@ const Dashboard = () => {
     const navigate = useNavigate();
     const handleNavigate =() =>{
         totalPrice(0)
-       let storeCart= localStorage.removeItem('gadget-list');
+        let storeCart= localStorage.removeItem('gadget-list');
         setCgadget([]);
         navigate(`${'/'}`);
-        // document.getElementById('cart').innerHTML = `<div></div>`;
     }
 
     return (
@@ -110,9 +105,7 @@ const Dashboard = () => {
                             <button
                                 onClick={handleSorting}
                                 className={`${totalPrice() !==0 ? "btn btn-primary m-2" : "btn btn-disabled m-2"}`}>Sort by Price</button>
-                            {/* <button className='btn btn-outline text-purple-700'>Purchase</button> */}
-
-                            {/* {...Cgadget.length ==0 ? `${className='btn btn-disabled'}` : `${className='btn btn-outline'}`}   */}
+                          
                             <button className={`${totalPrice() !==0 ? "btn btn-primary m-2" : "btn btn-disabled m-2"}`}
                             onClick={() => document.getElementById('my_modal_1').showModal()}>
                                 Purchase

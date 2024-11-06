@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {
   createBrowserRouter,
   RouterProvider,
+  useLocation,
 } from "react-router-dom";
 import Route from './Components/Routes/Route.jsx';
 import ErrorPage from './Components/ErrorPage/ErrorPage.jsx'
@@ -20,11 +21,15 @@ import Wishlist from './Components/Wishlist/Wishlist.jsx';
 import Satistics from './Components/Satistics/Satistics.jsx'
 import YourWish from './Components/YourWish/YourWish.jsx';
 
-const router = createBrowserRouter([
+
+const router = createBrowserRouter(
+  
+  [
+  
   {
     path: "/",
     element: <Route></Route>,
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage location={location}></ErrorPage>,
     children:[
       {
         path: '/',

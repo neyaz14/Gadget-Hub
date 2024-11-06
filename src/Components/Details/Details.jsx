@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from "react-helmet-async";
-import {  useLoaderData, useParams } from 'react-router-dom';
+import {  useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import {addToStoredCart} from '../../Utility/addToDB'
 const Details = () => {
     const { gadgetId } = useParams();
@@ -10,12 +10,14 @@ const Details = () => {
     // console.log(data)
     const gadget = data.find(gadget => gadget.gadgetId === id);
 
-   
-    // console.log(gadget)
+    // const navigate = useNavigate();
+
+ 
     const { gadgetId: gId,  producttitle, productimage, category, price, description, Specification, availability, rating } = gadget;
-    console.log(Specification)
+    
     const handleAddtoCART = (id) =>{
         addToStoredCart(id);
+        // navigate()
     }
     return (
         <div className='border border-white p-5 m-5'>
@@ -50,8 +52,13 @@ const Details = () => {
                     </p>
                     <p>Rating : {rating}</p>
                     <div className='mt-16'>
-                        <button onClick={() => handleAddtoCART(gId)} className=' btn btn-outline mr-6'>Add to Cart</button>
-                        <button className='btn btn-primary'>Wishlist</button>
+
+                        <button 
+                        onClick={() => handleAddtoCART(gId)} className=' btn btn-outline mr-6'>Add to Cart</button>
+
+                        <button
+                        onClick={() => handleAddtoCART(gId)}
+                        className='btn btn-primary'>Wishlist</button>
                     </div>
 
                 </div>

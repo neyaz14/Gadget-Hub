@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import { useLocation } from 'react-router-dom';
 import { HelmetProvider } from "react-helmet-async";
+import ErrorPage from '../ErrorPage/ErrorPage';
 const Route = () => {
 
     const location = useLocation();
@@ -19,6 +20,7 @@ const Route = () => {
 
                     </Outlet>
                     <Footer ></Footer>
+                    {/* <ErrorPage></ErrorPage> */}
                
 
             </div>
