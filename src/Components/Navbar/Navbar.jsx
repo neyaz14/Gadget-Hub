@@ -1,23 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { Helmet } from 'react-helmet-async';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { addToStoredCart, getStoredToCART } from '../../Utility/addToDB'
-const Navbar = () => {
+const Navbar = ({location}) => {
+   
     const cartList = getStoredToCART();
-    // console.log(cartList)
+    
 
     const Links = <>
-        <li><NavLink to={'/'}>Home</NavLink></li>
-        <li><NavLink to={'satistics'}>Statistics</NavLink></li>
-        <li><NavLink to={'dashboard'}>Dashboard</NavLink></li>
-        <li><NavLink to={'yourwish'}>Your Wish</NavLink></li>
+        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'/'}>Home</NavLink></li>
+        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'satistics'}>Statistics</NavLink></li>
+        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'dashboard'}>Dashboard</NavLink></li>
+        <li className={`${location.pathname==='/'? "text-white font-semibold":"text-black font-semibold"}`}><NavLink to={'yourwish'}>Your Wish</NavLink></li>
     </>
 
+
     return (
-        <div className="navbar  ">
-            {/* <Helmet>
-                <title></title>
-            </Helmet> */}
+        <div className={`${location.pathname==='/'? "navbar bg-purple-500 rounded-t-xl w-full mt-2": "navbar"}`}>
+            
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -40,7 +40,7 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl"> Gadget Heaven</a>
+                <a className="btn btn-ghost text-xl font-bold"> Gadget Heaven</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-4 ">
@@ -48,7 +48,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <a className="btn mr-3 text-white font-bold bg-purple-600">Cart <span></span></a>
+                <a className="btn mr-3 bg-purple-400 text-white font-bold "><NavLink to={'dashboard'}>Cart</NavLink></a>
                 <a className="btn ml-3 text-white font-bold bg-purple-400">WishList</a>
             </div>
         </div>

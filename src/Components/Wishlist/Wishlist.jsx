@@ -1,10 +1,13 @@
 import React from 'react';
-
+import { Helmet } from "react-helmet-async";
 const Wishlist = ({ gadget }) => {
     const { gadgetId: gId, producttitle, productimage, category, price, description, Specification, availability, rating } = gadget;
     return (
 
         <div>
+            <Helmet>
+                <title>Dashboard/Wishlist</title>
+            </Helmet>
             <div>
                 
             </div>

@@ -19,14 +19,15 @@ const Dashboard = () => {
 
     const [Cgadget, setCgadget] = useState([]);
     const allgadgets = useLoaderData();
+    
     useEffect(() => {
         const storeCart = getStoredToCART();
         const storeCartInt = storeCart.map(id => parseInt(id));
         const addedCartList = allgadgets.filter(gadget => storeCartInt.includes(gadget.gadgetId));
 
-        console.log(storeCart)
+        console.log(storeCart.length)
        
-        console.log(addedCartList.length)
+        // console.log(addedCartList.length)
         setCgadget(addedCartList)
 
 
@@ -44,7 +45,7 @@ const Dashboard = () => {
     }
 
     // for onclik handler to show and hide one section 
-    const showCart = () => setVisibleItem(1);
+    const showCart = () => {setVisibleItem(1)};
     const showWishlist = () => setVisibleItem(2);
 
 
@@ -78,12 +79,12 @@ const Dashboard = () => {
 
                         <button
                             onClick={showCart}
-                            className='btn btn-primary'>
+                            className={`${visibleItem ===1 ? "btn btn-primary m-2" : "btn m-2"}`}>
                             Cart
                         </button>
                         <button
                             onClick={showWishlist}
-                            className='btn border'>WishList</button>
+                            className={`${visibleItem ===2 ? "btn btn-primary m-2" : "btn m-2"}`}>WishList</button>
                     </div>
 
 
@@ -108,12 +109,14 @@ const Dashboard = () => {
                             } </p>
                             <button
                                 onClick={handleSorting}
-                                className='btn btn-outline text-purple-700'>Sort by Price</button>
+                                className={`${totalPrice() !==0 ? "btn btn-primary m-2" : "btn btn-disabled m-2"}`}>Sort by Price</button>
                             {/* <button className='btn btn-outline text-purple-700'>Purchase</button> */}
 
                             {/* {...Cgadget.length ==0 ? `${className='btn btn-disabled'}` : `${className='btn btn-outline'}`}   */}
-                            <button className='btn btn-outline text-purple-700'
-                            onClick={() => document.getElementById('my_modal_1').showModal()}>Purchase</button>
+                            <button className={`${totalPrice() !==0 ? "btn btn-primary m-2" : "btn btn-disabled m-2"}`}
+                            onClick={() => document.getElementById('my_modal_1').showModal()}>
+                                Purchase
+                            </button>
                             <dialog id="my_modal_1" className="modal">
                                 <div className="modal-box">
                                     <h3 className="font-bold text-lg">Payment Successfully</h3>

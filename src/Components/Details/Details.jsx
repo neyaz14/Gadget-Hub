@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet-async";
 import {  useLoaderData, useParams } from 'react-router-dom';
 import {addToStoredCart} from '../../Utility/addToDB'
 const Details = () => {
@@ -18,7 +19,9 @@ const Details = () => {
     }
     return (
         <div className='border border-white p-5 m-5'>
-
+            <Helmet>
+                <title>Gadget/Details</title>
+            </Helmet>
             <div className='bg-purple-600 text-center py-40'>
                 <h1 className='text-white text-3xl font-bold'>Product Details</h1>
                 <p className='text-white font-semibold w-9/12 mx-auto'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>

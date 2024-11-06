@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Gadget from '../Gadget/Gadget';
-import { NavLink } from 'react-router-dom';
+
 const Gadgets = () => {
     const [gadgets, setGadgets] = useState([]);
     useEffect(() => {
@@ -38,21 +38,21 @@ const Gadgets = () => {
 
 
                 <div className='bg-white flex flex-col items-stretch justify-stretch border mx-auto p-4 rounded-xl'>
-                    <button onClick={() => setVisibleItem(1)} className='btn m-2'>
+                    <button onClick={() => setVisibleItem(1)} className={`${visibleItem ===1 ? "btn btn-primary m-2" : "btn m-2"}`}>
                         All Products
                     </button>
 
-                    <button onClick={() => setVisibleItem(2)} className='btn m-2'>Android</button>
+                    <button onClick={() => setVisibleItem(2)} className={`${visibleItem ===2 ? "btn btn-primary m-2" : "btn m-2"}`}>Android</button>
 
-                    <button onClick={() => setVisibleItem(3)} className='btn m-2'>Laptops</button>
+                    <button onClick={() => setVisibleItem(3)} className={`${visibleItem ===3 ? "btn btn-primary m-2" : "btn m-2"}`}>Laptops</button>
 
-                    <button onClick={() => setVisibleItem(4)} className='btn m-2'>MacBook</button>
+                    <button onClick={() => setVisibleItem(4)} className={`${visibleItem ===4 ? "btn btn-primary m-2" : "btn m-2"}`}>MacBook</button>
 
-                    <button onClick={() => setVisibleItem(5)} className='btn m-2'>HeadPhones</button>
+                    <button onClick={() => setVisibleItem(5)} className={`${visibleItem ===5 ? "btn btn-primary m-2" : "btn m-2"}`}>HeadPhones</button>
 
-                    <button onClick={() => setVisibleItem(6)} className='btn m-2'>Iphone</button>
+                    <button onClick={() => setVisibleItem(6)} className={`${visibleItem ===6 ? "btn btn-primary m-2" : "btn m-2"}`}>Iphone</button>
 
-                    <button onClick={() => setVisibleItem(7)} className='btn m-2'>Smart Watches</button>
+                    <button onClick={() => setVisibleItem(7)} className={`${visibleItem ===7 ? "btn btn-primary m-2" : "btn m-2"}`}>Smart Watches</button>
                 </div>
 
                 <div className='mx-auto'>
