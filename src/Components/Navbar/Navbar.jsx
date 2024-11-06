@@ -1,11 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-
+import {addToStoredCart,getStoredToCART} from '../../Utility/addToDB'
 const Navbar = () => {
+    const cartList = getStoredToCART();
+    // console.log(cartList)
+
     const Links =<>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'satistics'}>Statistics</NavLink></li>
         <li><NavLink to={'dashboard'}>Dashboard</NavLink></li>
+        <li><NavLink to={'yourwish'}>Your Wish</NavLink></li>
     </>
 
     return (
@@ -40,7 +44,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end ">
-                <a className="btn mr-3 text-white font-bold bg-purple-600">Cart</a>
+                <a className="btn mr-3 text-white font-bold bg-purple-600">Cart <span>({cartList.length})</span></a>
                 <a className="btn ml-3 text-white font-bold bg-purple-400">WishList</a>
             </div>
         </div>

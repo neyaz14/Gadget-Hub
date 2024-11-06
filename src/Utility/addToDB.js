@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 
 const getStoredToCART = () => {
-    // read-list
-    const storedListStr = localStorage.getItem('read-list');
+  
+    const storedListStr = localStorage.getItem('gadget-list');
     if (storedListStr) {
         const storedList = JSON.parse(storedListStr);
         return storedList;
@@ -15,14 +15,15 @@ const getStoredToCART = () => {
 const addToStoredCart = (id) => {
     const storedList = getStoredToCART();
     if (storedList.includes(id)) {
-        // already exists. do not add it
+       
         toast('already exists in the read list')
     }
     else {
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
-        localStorage.setItem('read-list', storedListStr);
+        localStorage.setItem('gadget-list', storedListStr);
         toast('Succesfully added in the cart')
+        // const cartList = storedListStr.length;
  
         
     }

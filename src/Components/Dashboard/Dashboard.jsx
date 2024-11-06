@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { getStoredToCART } from '../../Utility/addToDB'
@@ -15,7 +15,7 @@ const Dashboard = () => {
 
 
     const [sort, setsort] = useState();
-    //  for toggle items 
+   
 
     const [Cgadget, setCgadget] = useState([]);
     const allgadgets = useLoaderData();
@@ -24,12 +24,15 @@ const Dashboard = () => {
         const storeCartInt = storeCart.map(id => parseInt(id));
         const addedCartList = allgadgets.filter(gadget => storeCartInt.includes(gadget.gadgetId));
 
+        console.log(storeCart)
+       
+        console.log(addedCartList.length)
         setCgadget(addedCartList)
 
 
     }, [])
-    const totalPrice = () => {
-        let price = 0;
+    const totalPrice = (price) => {
+         price = 0;
         const priceList = Cgadget.map(product => product.price);
 
         for (let i = 0; i < priceList.length; i++) {
@@ -49,6 +52,12 @@ const Dashboard = () => {
     const handleSorting = () => {
         const sortedGadgetList = [...Cgadget].sort((a, b) => b.price - a.price);
         setCgadget(sortedGadgetList);
+    }
+    const navigate = useNavigate();
+    const handleNavigate =() =>{
+        totalPrice(0)
+       storeCart= localStorage.removeItem('gadget-list');
+        navigate(`${'/'}`)
     }
 
     return (
@@ -80,9 +89,9 @@ const Dashboard = () => {
 
 
 
-          
 
 
+{/* Cgadget.length */}
             {visibleItem === 1 ?
                 <div>
                     <div className='flex justify-between items-center my-8'>
@@ -96,7 +105,10 @@ const Dashboard = () => {
                                 onClick={handleSorting}
                                 className='btn btn-outline text-purple-700'>Sort by Price</button>
                             {/* <button className='btn btn-outline text-purple-700'>Purchase</button> */}
-                            <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Purchase</button>
+
+                            {/* {...Cgadget.length ==0 ? `${className='btn btn-disabled'}` : `${className='btn btn-outline'}`}   */}
+                            <button className='btn btn-outline text-purple-700'
+                            onClick={() => document.getElementById('my_modal_1').showModal()}>Purchase</button>
                             <dialog id="my_modal_1" className="modal">
                                 <div className="modal-box">
                                     <h3 className="font-bold text-lg">Payment Successfully</h3>
@@ -105,7 +117,7 @@ const Dashboard = () => {
                                     <div className="modal-action">
                                         <form method="dialog">
 
-                                            <button className="btn">Close</button>
+                                            <button onClick={handleNavigate} className="btn">Close</button>
                                         </form>
                                     </div>
                                 </div>

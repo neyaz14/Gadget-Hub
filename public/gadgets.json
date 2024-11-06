@@ -61,7 +61,10 @@
       "category": "MacBook",
       "price": 1299,
       "description": "The MacBook Pro M1 offers powerful performance with the Apple M1 chip, perfect for professionals.",
-      "Specification": ["13.3-inch Retina display", "256GB SSD", "8GB RAM", "Apple M1 chip"],
+      "Specification": ["13.3-inch Retina display", 
+      "256GB SSD", 
+      "8GB RAM", 
+      "Apple M1 chip"],
       "availability": false,
       "rating": 4
     },
