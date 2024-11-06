@@ -1,5 +1,7 @@
 
+live link :  https://clinquant-tartufo-b606b1.netlify.app/
 
+github repo link : https://github.com/programming-hero-web-course2/b10a8-gadget-heaven-neyaz14
 
 ○ List of React Fundamental concepts used in the project : some hooks like useLocation, useNavigate, onSubmit and accessing data field , context api and so many.
 
